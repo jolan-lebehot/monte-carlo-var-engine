@@ -469,7 +469,7 @@ It is clear that the density lies almost entirely to the right of the vertical a
 
 # Conclusion
 
-Through this study, we discovered why do we work with log returns in finance and we learned how to use it. Then we analyzed historical data to introduce the two notions that are the drift and the volatility that we used to modeling the Geometric Brownian Movement.
+Through this study, we discovered why we work with log returns in finance and we learned how to use it. Then we analyzed historical data to introduce the two notions that are the drift and the volatility that we used to modeling the Geometric Brownian Movement.
 
 To solve this equation, we needed to have the Îto's lemma to model potential futur returns which is leaded by normal distributions. Then we model all the possibilities to predict futur asset's prices.
 
