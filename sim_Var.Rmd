@@ -265,7 +265,7 @@ $$
 
 ## Basic implementations
 
-To get all these data, we need to import the yfinance module and other modules on our python code.
+To get all these data, we need to import the yfinance module and other modules in our Python code.
 
 ```{python}
 import yfinance as yf
@@ -275,7 +275,7 @@ import numpy.random as rd
 import matplotlib.pyplot as plt
 ```
 
-Then we need to define a portfolio of stocks whose we are going to extract the data we need to do the study. So we need to choose the firm that we are going to study and give the function the period of time and the interval of each measure.
+Then we need to define a portfolio of stocks for which we are going to extract the data we need to do the study. So we need to choose the firm that we are going to study and give the function the period of time and the interval of each measure.
 
 ```{python}
 tickers = 'AAPL'
@@ -283,7 +283,7 @@ tickers = 'AAPL'
 
 def extraire(portfolio, period, interval):
     data = yf.download(portfolio, period=period, interval=interval, auto_adjust=False)['Adj Close']
-    # A pousser : On utilise l'adjusted close pour éviter de corrompre le calcul de la volatilité
+    # We use Adjusted Close to avoid biasing the volatility calculation.
 
     return data.squeeze()
 
@@ -315,7 +315,7 @@ $$
 \sigma = \sqrt{\mathbb{V}(r)}
 $$
 
-and construct the function of it on python.
+and construct the function of it in Python.
 
 ```{python}
 
@@ -325,7 +325,7 @@ def volatility(data):
 print(volatility(data))
 ```
 
-Then, we are going to intraduce the drift of the asset,
+Then, we are going to introduce the drift of the asset,
 
 ```{python}
 
@@ -337,7 +337,7 @@ print(drift(data))
 
 ## Monte Carlo simulation
 
-All these basic implementations let us simulate all the futur log returns of the asset, with the time we need to simulate and how much intervals do we want.
+All these basic implementations let us simulate all the future log returns of the asset over the desired time horizon and number of time steps.
 
 ```{python}
 
@@ -427,7 +427,7 @@ pnl_values = pnl(data)
 plt.figure(figsize=(10, 5))
 plt.hist(pnl_values, bins=50, color='skyblue', edgecolor='black', alpha=0.7, density=True, label='Distribution des P&L')
 
-plt.title("Distribution of futur P&L")
+plt.title("Distribution of future P&L")
 plt.xlabel('Profit & Loss ($)')
 plt.ylabel('Density of probability')
 plt.show()
@@ -437,7 +437,7 @@ And we finally introduce the Value at Risk.
 
 ```{python}
 
-# Calculating of the VaR at 99% and at 95% (= quantile at 99% and at 95%)
+# Calculating the VaR at 99% and at 95% (= quantile at 99% and at 95%)
 var_99 = np.percentile(pnl_values, 1)
 var_95 = np.percentile(pnl_values, 5)
 
